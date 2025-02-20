@@ -1,0 +1,79 @@
+{
+    "Tasks": [
+        {
+            "Name": "OneDriveMonitoring",
+            "Description": "自動監視タスク - OneDriveの状態を定期的に監視",
+            "Script": "Monitor-OneDriveStatus.ps1",
+            "Schedule": {
+                "Frequency": "Daily",
+                "Time": "09:00",
+                "Interval": 60
+            },
+            "Parameters": {
+                "OutputPath": "D:\\OneDriveForBusiness運用ツール\\Reports",
+                "LogPath": "D:\\OneDriveForBusiness運用ツール\\Logs"
+            },
+            "Enabled": true
+        },
+        {
+            "Name": "OneDriveNotification",
+            "Description": "自動通知タスク - 問題発生時に管理者へ通知",
+            "Script": "Send-OneDriveNotification.ps1",
+            "Schedule": {
+                "Frequency": "Hourly",
+                "Interval": 60
+            },
+            "Parameters": {
+                "ConfigPath": "D:\\OneDriveForBusiness運用ツール\\config\\notification-config.json"
+            },
+            "Enabled": true
+        },
+        {
+            "Name": "OneDriveDiagnostics",
+            "Description": "自動診断タスク - 毎日システム状態を診断",
+            "Script": "Troubleshoot-OneDriveKFM.ps1",
+            "Schedule": {
+                "Frequency": "Daily",
+                "Time": "00:00"
+            },
+            "Parameters": {},
+            "Enabled": true
+        },
+        {
+            "Name": "OneDriveReportCleanup",
+            "Description": "レポート自動クリーンアップ - 古いレポートを削除",
+            "Script": "Clean-OneDriveReports.ps1",
+            "Schedule": {
+                "Frequency": "Daily",
+                "Time": "03:00"
+            },
+            "Parameters": {
+                "RetentionDays": 30,
+                "ReportPath": "D:\\OneDriveForBusiness運用ツール\\Reports",
+                "LogPath": "D:\\OneDriveForBusiness運用ツール\\Logs"
+            },
+            "Enabled": true
+        }
+    ],
+    "Logging": {
+        "Path": "D:\\OneDriveForBusiness運用ツール\\Logs\\scheduler",
+        "RetentionDays": 30,
+        "Format": "JSON",
+        "DetailLevel": "Verbose"
+    },
+    "ErrorHandling": {
+        "MaxRetries": 3,
+        "RetryIntervalMinutes": 5,
+        "NotifyOnError": true,
+        "ErrorLogPath": "D:\\OneDriveForBusiness運用ツール\\Logs\\errors"
+    },
+    "Maintenance": {
+        "AutoUpdateModules": true,
+        "UpdateCheckInterval": "Weekly",
+        "BackupSettings": {
+            "Enabled": true,
+            "Path": "D:\\OneDriveForBusiness運用ツール\\Backup",
+            "RetentionCount": 5
+        }
+    }
+}

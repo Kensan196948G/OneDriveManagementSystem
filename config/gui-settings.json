@@ -1,0 +1,143 @@
+{
+    "GUI": {
+        "Theme": "Light",
+        "Language": "ja-JP",
+        "AutoRefresh": true,
+        "RefreshInterval": 300,
+        "DefaultView": "Dashboard"
+    },
+    "Dashboard": {
+        "Charts": {
+            "StorageUsage": {
+                "Enabled": true,
+                "Type": "StackedColumn",
+                "ShowLegend": true,
+                "Colors": ["#3498db", "#2ecc71"]
+            },
+            "TrendAnalysis": {
+                "Enabled": true,
+                "Type": "Line",
+                "PredictionDays": 90,
+                "ShowConfidenceInterval": true
+            },
+            "ErrorDistribution": {
+                "Enabled": true,
+                "Type": "Pie",
+                "Colors": ["#e74c3c", "#f39c12", "#2ecc71"]
+            }
+        },
+        "Widgets": {
+            "QuickStats": {
+                "Enabled": true,
+                "Position": "Top",
+                "ShowTrend": true
+            },
+            "RecentEvents": {
+                "Enabled": true,
+                "Position": "Right",
+                "MaxItems": 50
+            },
+            "Alerts": {
+                "Enabled": true,
+                "Position": "Right",
+                "MaxItems": 10
+            }
+        }
+    },
+    "DataGrid": {
+        "PageSize": 25,
+        "Columns": [
+            {
+                "Name": "UserName",
+                "DisplayName": "ユーザー名",
+                "Width": 150,
+                "Sortable": true
+            },
+            {
+                "Name": "Email",
+                "DisplayName": "メールアドレス",
+                "Width": 200,
+                "Sortable": true
+            },
+            {
+                "Name": "UsedStorage",
+                "DisplayName": "使用容量",
+                "Width": 100,
+                "Format": "N2",
+                "Sortable": true
+            },
+            {
+                "Name": "UsagePercentage",
+                "DisplayName": "使用率",
+                "Width": 100,
+                "Format": "P1",
+                "Sortable": true
+            },
+            {
+                "Name": "Status",
+                "DisplayName": "状態",
+                "Width": 100,
+                "Sortable": true
+            },
+            {
+                "Name": "LastUpdate",
+                "DisplayName": "最終更新",
+                "Width": 150,
+                "Format": "g",
+                "Sortable": true
+            }
+        ],
+        "ColorRules": [
+            {
+                "Column": "UsagePercentage",
+                "Conditions": [
+                    {
+                        "Operator": ">=",
+                        "Value": 90,
+                        "Color": "#e74c3c"
+                    },
+                    {
+                        "Operator": ">=",
+                        "Value": 75,
+                        "Color": "#f39c12"
+                    },
+                    {
+                        "Operator": "<",
+                        "Value": 75,
+                        "Color": "#2ecc71"
+                    }
+                ]
+            },
+            {
+                "Column": "Status",
+                "Conditions": [
+                    {
+                        "Value": "Error",
+                        "Color": "#e74c3c"
+                    },
+                    {
+                        "Value": "Warning",
+                        "Color": "#f39c12"
+                    },
+                    {
+                        "Value": "Success",
+                        "Color": "#2ecc71"
+                    }
+                ]
+            }
+        ]
+    },
+    "Export": {
+        "DefaultFormat": "PDF",
+        "OutputPath": "Reports",
+        "Templates": {
+            "PDF": "Templates\\ReportTemplate.html",
+            "Excel": "Templates\\ExcelTemplate.xlsx"
+        },
+        "Branding": {
+            "Logo": "Assets\\logo.png",
+            "CompanyName": "みらい建設工業株式会社",
+            "Department": "管理本部総務部システムグループ"
+        }
+    }
+}

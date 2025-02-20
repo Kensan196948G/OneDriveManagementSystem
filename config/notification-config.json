@@ -1,0 +1,24 @@
+{
+    "Alerts": {
+        "StorageThreshold": 90,
+        "ErrorThreshold": 5,
+        "WarningThreshold": 10
+    },
+    "Notification": {
+        "Email": {
+            "Enabled": false,
+            "SmtpServer": "smtp.office365.com",
+            "FromAddress": "",
+            "ToAddress": []
+        },
+        "Teams": {
+            "Enabled": false,
+            "WebhookUrl": ""
+        }
+    },
+    "AuditLog": {
+        "Enabled": true,
+        "Path": "D:\\OneDriveForBusiness運用ツール\\Logs\\audit",
+        "RetentionDays": 90
+    }
+}
