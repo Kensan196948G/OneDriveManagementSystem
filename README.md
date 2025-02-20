@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #OneDrive for Business KFM運用管理ツール
 
 ## 概要
@@ -404,3 +405,7 @@ MIT License
   - PDF出力機能の追加
   - 自動更新機能の実装
   - 監査ログ機能の追加
+=======
+# OneDriveManagementSystem
+OneDrive運用システム
+>>>>>>> 6611442df8ba6aed46e42a778fa9ecd42b08c7e3
